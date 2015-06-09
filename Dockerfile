@@ -6,10 +6,10 @@ RUN apt-get update && apt-get install -y wget vim git
 RUN wget https://github.com/github/git-lfs/releases/download/v0.5.1-tracing/git-lfs-linux-amd64-0.5.1.tar.gz
 RUN tar -xvf git-lfs-linux-amd64-0.5.1.tar.gz
 RUN cd git-lfs-0.5.1
-RUN ./install.sh
+RUN bash ./install.sh
 
 WORKDIR /current-repo
 VOLUME ["/current-repo"]
 
-ENTRYPOINT ["git lfs"]
+ENTRYPOINT ["bash git lfs"]
 CMD ["--help"]
